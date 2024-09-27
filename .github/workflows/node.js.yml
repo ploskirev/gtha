@@ -18,6 +18,7 @@ jobs:
           key: node_modules-${{hashFiles('package-lock.json')}}
           restore-keys: node_modules- # Take any latest cache if failed to find it for current yarn.lock
       - run: npm ci
+      - run: node -v
   build:
     needs: install-deps
     runs-on: ubuntu-latest
@@ -31,6 +32,7 @@ jobs:
         with:
           path: node_modules
           key: node_modules-${{hashFiles('package-lock.json')}}
+      - run: node -v
       - run: npm run build
 
 

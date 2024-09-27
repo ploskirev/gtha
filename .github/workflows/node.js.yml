@@ -27,6 +27,10 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org/
+      - uses: actions/cache/restore@v3
+        with:
+          path: node_modules
+          key: node_modules-${{hashFiles('package-lock.json')}}
       - run: npm run build
 
 

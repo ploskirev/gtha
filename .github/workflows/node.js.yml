@@ -5,6 +5,7 @@ on: [push]
 jobs:
   publish-npm:
     runs-on: ubuntu-latest
+    environment: Prod
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -14,5 +15,5 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm publish
-        with:
+        env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

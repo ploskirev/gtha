@@ -1,0 +1,22 @@
+{
+  "name": "qqq",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "rollup -c"
+  },
+  "author": "https://github.com/ploskirev",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-terser": "0.4.4",
+    "@rollup/plugin-typescript": "12.1.0",
+    "@types/node": "22.7.4",
+    "rollup": "4.22.5",
+    "tslib": "2.7.0"
+  }
+}

@@ -51,10 +51,10 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
-      - run: ls -la
       - uses: actions/download-artifact@v4
         with:
           name: dist
+      - run: ls -la
 
 
 # jobs:

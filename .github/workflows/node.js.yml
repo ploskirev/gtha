@@ -56,7 +56,8 @@ jobs:
           name: dist
           path: build
       - run: ls -la
-      - run: cd ./build & ls -la
+      - run: cd ./build
+      - run: ls -la
 
 
 # jobs:

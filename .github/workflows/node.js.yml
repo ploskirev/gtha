@@ -30,7 +30,7 @@ jobs:
     # - run: npm publish
     #   env:
     #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} ${{ secrets.NPM_TOKEN }} event."
     - run: echo "$NPM_TOKEN"
     - run: echo "${{ secrets.NPM_TOKEN }}"
     - run: echo "$NODE_AUTH_TOKEN"

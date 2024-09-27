@@ -15,7 +15,7 @@ jobs:
       - uses: actions/cache@v3
         with:
           path: node_modules
-          key: node_modules-${{hashFiles('package-lock.json')}}
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
           restore-keys: node_modules- # Take any latest cache if failed to find it for current yarn.lock
       - run: npm ci
       - run: node -v
@@ -31,7 +31,8 @@ jobs:
       - uses: actions/cache/restore@v3
         with:
           path: node_modules
-          key: node_modules-${{hashFiles('package-lock.json')}}
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
+          # key: node_modules-${{hashFiles('package-lock.json')}}
       - run: node -v
       - run: npm run build
 

@@ -1,6 +1,11 @@
 name: Node.js Package!!!
 
 on: [push]
+on:
+  push:
+    branches:
+      - master
+      - 'dev/**'
 
 jobs:
   install-deps:

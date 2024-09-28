@@ -1,3 +1,3 @@
 export function run() {
-  console.log('I am running')
+  console.log('I am running!')
 }

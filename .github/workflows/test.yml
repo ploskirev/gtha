@@ -1,0 +1,46 @@
+name: Node.js Package test!!!
+
+# on: [push]
+on:
+  push:
+    branches:
+      - master
+      - 'dev/**'
+
+jobs:
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org/
+      - uses: actions/cache/restore@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+      - run: ls -la
+      - run: cd ./dist && ls -la
+
+
+# jobs:
+#   publish-npm:
+#     runs-on: ubuntu-latest
+#     environment: Prod
+#     steps:
+#       - uses: actions/checkout@v4
+#       - uses: actions/setup-node@v4
+#         with:
+#           node-version: 20
+#           registry-url: https://registry.npmjs.org/
+#       - run: npm ci
+#       - run: npm run build
+#       - run: npm publish
+#         env:
+#           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
